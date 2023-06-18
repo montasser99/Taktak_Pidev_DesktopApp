@@ -20,7 +20,7 @@ import javax.mail.internet.MimeMessage;
  */
 public class Mail {
     final String username = "nawres.lakhal@esprit.tn";
- final String password = "223JFT1613";
+ final String password = "kpkclfpgwusmvayd";
  private Session session;
  
  
@@ -32,6 +32,7 @@ props.put("mail.smtp.auth", "true");
 props.put("mail.smtp.starttls.enable","true");
 props.put("mail.smtp.host","smtp.gmail.com");
 props.put("mail.smtp.port","587");
+props.put("mail.smtp.ssl.ciphers", "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256");
 props.put("mail.smtp.ssl.protocols","TLSv1.2");
 
 this.session = Session.getInstance(props,

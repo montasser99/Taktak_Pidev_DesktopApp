@@ -41,18 +41,16 @@ public class AbnService {
     }
 
     public void add(Abonnement t) {
-        if (isUnique(t)){
+
             try {
-                String sql = "INSERT INTO abonnement(idU,moyTrA,dateExpA,idtypeA, etudiantA, redEtA, redEvA) VALUES (?,?, ?, ?, ?,?,?)";
+                String sql = "INSERT INTO abonnement(id_u,moyen_transport_a,date_exp_a,plan_id, etudiant_a, red_et_a) VALUES (?,?,?,?,?,?)";
                 PreparedStatement ste = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-                                ste.setInt(1, UsersSession.getIdU());
+                ste.setInt(1, UsersSession.getIdU());
                 ste.setString(2, t.getMoyTrA());
                 ste.setDate(3, java.sql.Date.valueOf(t.getDateExpA()));
-              
-               ste.setInt(4, t.getIdtypeA());
+                ste.setInt(4, t.getIdtypeA());
                 ste.setBoolean(5, t.isEtudiantA());
                 ste.setInt(6, t.getRedEtA());
-                ste.setInt(7, t.getRedEvA());
                 ste.executeUpdate();
                 ResultSet rs = ste.getGeneratedKeys();
                 if (rs.next()) {
@@ -61,9 +59,7 @@ public class AbnService {
                 System.out.println("Abonnement ajouté avec succès. ID généré: " + t.getIdA());
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
-    }}
-        else 
-        {System.out.println("Abonnement existe déjà");}
+    }
 }
 
  /*   public Abonnement read(int idA) throws SQLException {
@@ -169,7 +165,7 @@ public class AbnService {
    
        public boolean isUnique(Abonnement t) {
         try {
-            String sql = "SELECT COUNT(*) AS count FROM abonnement WHERE idU = ? AND moyTrA = ? AND dateA = ? AND idtypeA=? AND etudiantA = ? AND redEtA = ? AND redEvA = ?";
+            String sql = "SELECT COUNT(*) AS count FROM abonnement WHERE id_u = ? AND moyTrA = ? AND dateA = ? AND idtypeA=? AND etudiantA = ? AND redEtA = ? AND redEvA = ?";
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt(1, t.getIdU());
             stmt.setString(2, t.getMoyTrA());

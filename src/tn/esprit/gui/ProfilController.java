@@ -142,7 +142,7 @@ profilepicture.setStroke(Color.SEAGREEN);
 profilepicture.setEffect(new DropShadow(10, Color.BLACK));
 namellastnameuser.setText("Welcome, "+ " "+Role.toUpperCase()+ " "+nom.toUpperCase()+" "+prenom.toUpperCase());
 //}
-String SQLgetIDAdress = "SELECT idAdresse from utilisateur where idU='" +idU+"' ";
+String SQLgetIDAdress = "SELECT idAdresse from utilisateur where id='" +idU+"' ";
 m = ste.executeQuery(SQLgetIDAdress);
 ObservableList<Integer> IDAdresse = FXCollections.observableArrayList();
 while (m.next()) {
@@ -150,11 +150,11 @@ while (m.next()) {
     IDAdresse.add(IDD_A);
     FINAL_ID_A = IDAdresse.get(0);
 }
-String SQLget = "SELECT * from adresse where   IdAdresseU='" +FINAL_ID_A +"' ";
+String SQLget = "SELECT * from adresse where   id='" +FINAL_ID_A +"' ";
 A = ste.executeQuery(SQLget);
 while (A.next()) {
     String region = A.getString("region");
-    String cité = A.getString("cité");
+    String cité = A.getString("cite");
     String rue = A.getString("rue");
     int poste = A.getInt("numPoste");
     region_field.setText(region);
@@ -284,7 +284,7 @@ stage.show();
         fileChooser.setTitle("Open Resource File");
         fileChooser.getExtensionFilters().addAll(
         new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
-        fileChooser.setInitialDirectory(new File("C:\\Users\\pc\\Downloads\\Final\\TakTak_Final\\src\\tn\\esprit\\gui\\images"));
+        fileChooser.setInitialDirectory(new File("C:\\Users\\pc\\Desktop\\PIDEV 2023\\project java V1\\TakTak_Final\\src\\tn\\esprit\\gui\\images"));
         File file = fileChooser.showOpenDialog(null);
         if (file != null) {
             String TempprofilePicture = file.toURI().toString();

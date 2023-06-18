@@ -17,7 +17,7 @@ public class SendSms {
     // Find your Account SID and Auth Token at twilio.com/console
     // and set the environment variables. See http://twil.io/secure
     public static final String ACCOUNT_SID = "ACdeddd4cace14e03d372eb1df2a7ea42d";
-    public static final String AUTH_TOKEN = "571ef37d11bd378a853b7e76a314c665";
+    public static final String AUTH_TOKEN = "2ec4077ad6d84b563b0a5d8242d8ffe1";
 
     public void sendSms (int ticket,String num) {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);

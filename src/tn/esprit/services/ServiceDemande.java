@@ -41,7 +41,7 @@ public class ServiceDemande implements InterfaceDemande{
 
                 try {
 
-                    String req = "insert into demande(nomC, moyen,hd,ha, permis, EmailC) VALUES (?,?,?,?,?,?)";
+                    String req = "insert into demande(nomC, moyen,dated, datea, permis, EmailC) VALUES (?,?,?,?,?,?)";
                     PreparedStatement ps = cnx.prepareStatement(req);
                     ps.setString(1, d.getNomC());
                     ps.setString(2, d.getMoyen());
@@ -94,8 +94,8 @@ public class ServiceDemande implements InterfaceDemande{
             while (rs.next()) {
 
                 Demande d = new Demande(rs.getInt(1),
-                        rs.getString("nomC"), rs.getString("moyen"), rs.getString("HD"),
-                rs.getString("HA"), rs.getString("permis"), rs.getString("EmailC"));
+                        rs.getString("nomC"), rs.getString("moyen"), rs.getString("dated"),
+                rs.getString("datea"), rs.getString("permis"), rs.getString("EmailC"));
                 demandes.add(d);
 
             }
@@ -107,7 +107,7 @@ public class ServiceDemande implements InterfaceDemande{
     
     public  void  sms (String resultat) {
     
-        Twilio.init("AC59fc270cf600cf72e19f55209c147e0e","bb1421e71da5ced6fc834953a6d043f2");
+        Twilio.init("AC59fc270cf600cf72e19f55209c147e0e","e389306a366c504905cd689e2ad7e503");
         Message message = Message.creator(
                 new com.twilio.type.PhoneNumber("+21629117005"),
                 new com.twilio.type.PhoneNumber("+15676676188"),

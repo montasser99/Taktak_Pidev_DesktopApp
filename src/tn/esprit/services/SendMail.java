@@ -34,6 +34,8 @@ public class SendMail {
         properties.put("mail.smtp.host", host);
         properties.put("mail.smtp.port", "465");
         properties.put("mail.smtp.ssl.enable", "true");
+        properties.put("mail.smtp.ssl.protocols", "TLSv1.2");
+        properties.put("mail.smtp.ssl.ciphers", "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256");
         properties.put("mail.smtp.auth", "true");
 
         // Get the Session object.// and pass username and password
@@ -41,7 +43,7 @@ public class SendMail {
 
             protected PasswordAuthentication getPasswordAuthentication() {
 
-                return new PasswordAuthentication("Mail Qui envoie les message", "mdp de email");
+                return new PasswordAuthentication("montasser.benouirane@esprit.tn", "xnarznvoorqrzgzt");
 
             }
 

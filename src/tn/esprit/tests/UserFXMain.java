@@ -40,8 +40,8 @@ public class UserFXMain extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../gui/InterfaceLogin.fxml"));
            //Parent root = FXMLLoader.load(getClass().getResource("../gui/AfficherUser.fxml"));
-             Scene scene = new Scene(root, 800,600);
-        primaryStage.setTitle("Hello World!");
+             Scene scene = new Scene(root, 1200,600);
+        primaryStage.setTitle("Taktak");
         primaryStage.setScene(scene);
         primaryStage.resizableProperty().setValue(false);
         primaryStage.show();
@@ -76,7 +76,7 @@ public static BufferedImage iconToImage(Icon icon) {
 //            Scene scene = new Scene(root);
 //            _stage.setScene(scene);
 //            _stage.show();
-//        } catch (IOException ex) {
+//        } catch (IOException ex) {u
 //            System.out.println(ex.getMessage());
 //        }
 //    }   
